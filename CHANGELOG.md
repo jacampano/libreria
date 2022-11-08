@@ -172,9 +172,6 @@ No aplica
 No aplica
 
 
-[0.4.0]: Incluir URL 
-[0.3.0]: https://gitlabexp.chap.junta-andalucia.es/ccc/eslabones/-/tags/0.3.0
-[0.2.0]: https://gitlabexp.chap.junta-andalucia.es/ccc/eslabones/-/tags/0.2.0
 
 
 
