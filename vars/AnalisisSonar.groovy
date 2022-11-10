@@ -4,7 +4,7 @@ def call(String versionJDK) {
           
           try {
           
-               withSonarQubeEnv(credentialsId: 'Sonar7Token', installationName: 'Sonar') {
+               withSonarQubeEnv(credentialsId: 'sonarToken', installationName: 'SonarLocal') {
                     sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=${WORKSPACE}/sonar.properties"
                     }
       
