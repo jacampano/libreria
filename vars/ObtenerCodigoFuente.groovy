@@ -1,18 +1,10 @@
-def call(String versionJDK) {
-     withEnv(["SONAR_SCANNER_OPTS=-Xms512m -Xmx1024m","JAVA_HOME=${ tool versionJDK}"]) {
-          scannerHome = tool 'SonarScanner'
-          
-          try {
-          
-               withSonarQubeEnv(credentialsId: 'sonarToken', installationName: 'SonarLocal') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=${WORKSPACE}/sonar.properties"
-                    }
-      
+def call(String urlGIT, String rama, String credencialesGIT) {
 
-               }catch (err) {
-                         echo err
-                         }
-               echo currentBuild.result
-     }
-     
+     echo "--- Obtener Codigo Fuente desde rama:" + rama + "--"
+     checkout([$class: 'GitSCM',
+                       branches: [[name: "${rama}"]],
+                       doGenerateSubmoduleConfigurations: false,
+                       extensions: [], gitTool: 'git', submoduleCfg: [],
+                       userRemoteConfigs: [[credentialsId: "${credencialesGIT}", url: "${urlGIT}"]]])
+
 }
