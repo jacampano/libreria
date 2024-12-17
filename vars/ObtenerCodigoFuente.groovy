@@ -5,6 +5,6 @@ def call(String urlGIT, String rama, String credencialesGIT) {
                        branches: [[name: "${rama}"]],
                        doGenerateSubmoduleConfigurations: false,
                        extensions: [], gitTool: 'git', submoduleCfg: [],
-                       userRemoteConfigs: [[credentialsId: "${credencialesGIT}", url: "${urlGIT}"]]])
+                       userRemoteConfigs: [[url: "${urlGIT}"]]])
 
 }
